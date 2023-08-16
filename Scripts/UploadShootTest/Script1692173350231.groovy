@@ -16,29 +16,8 @@ import com.kms.katalon.core.webui.keyword.WebUiBuiltInKeywords as WebUI
 import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
-import com.kms.katalon.core.configuration.RunConfiguration as RunConfiguration
-import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
-import org.openqa.selenium.WebDriver
-import org.openqa.selenium.support.ui.WebDriverWait
-import org.openqa.selenium.support.ui.ExpectedConditions
 
-
-RunConfiguration.setMobileDriverPreferencesProperty('appWaitActivity', 'com.photogauge.masterapp.ui.presenter.login.LoginActivity')
-//RunConfiguration.setMobileDriverPreferencesProperty("appWaitDuration", "20000")
-//RunConfiguration.setMobileDriverPreferencesProperty('deviceName', 'OPPO CPH1823')
-//RunConfiguration.setMobileDriverPreferencesProperty('platformName', 'Android')
-//
-RunConfiguration.setMobileDriverPreferencesProperty('appPackage', 'com.photogauge.masterapp')
-RunConfiguration.setMobileDriverPreferencesProperty('autoDismissAlerts', true)
-
-Mobile.startApplication('C://Users//zeesh//Downloads//Rakesh2.apk', true)
-//Mobile.startExistingApplication('com.photogauge.masterapp')
-
-Mobile.sendKeys(findTestObject('Object Repository/obj rep 2/android.widget.EditText - Enter Email'), 'liidartestdata@photogauge.com')
-
-Mobile.sendKeys(findTestObject('Object Repository/obj rep 2/android.widget.EditText - Enter Password'), '123456')
-
-Mobile.tap(findTestObject('Object Repository/obj rep 2/android.widget.Button - Sign In'), 0)
+Mobile.callTestCase(findTestCase('LoginTest'), [:], FailureHandling.CONTINUE_ON_FAILURE)
 
 Mobile.tap(findTestObject('Object Repository/obj rep 2/android.widget.Button - Next'), 0)
 
@@ -49,3 +28,4 @@ Mobile.tap(findTestObject('Object Repository/obj rep 2/android.widget.ImageView 
 Mobile.tap(findTestObject('Object Repository/obj rep 2/android.widget.ImageView (3)'), 0)
 
 Mobile.tap(findTestObject('Object Repository/obj rep 2/android.widget.Button - OK'), 0)
+
